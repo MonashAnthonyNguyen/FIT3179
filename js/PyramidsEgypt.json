@@ -7,14 +7,14 @@
   "layer": [
     {
       "data": {
-        "url": "https://monashanthonynguyen.github.io/FIT3179/EgyptT.geo.json",
+        "url": "https://monashanthonynguyen.github.io/FIT3179/js/EgyptT.geo.json",
         "format": {"type": "topojson", "feature": "Egypt"}
       },
       "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
     },
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/MonashAnthonyNguyen/FIT3179/main/pyramids.csv"
+        "url": "https://raw.githubusercontent.com/MonashAnthonyNguyen/FIT3179/data/pyramids.csv"
       },
       "mark": {"type": "circle", "tooltip": {"content": "data"}},
       "encoding": {
