@@ -12,15 +12,27 @@
   
 </head>
 <body>
-  
+<h1>Egypt: Land of the Pyramids</h1>
+
+<h2>Map</h2>
 <div id="symbol_map"></div>
+
+<h2>vis2</h2>
+<div id="vis2"></div> 
 
 <script type="text/javascript">
 
-  var spec2 = "https://monashanthonynguyen.github.io/FIT3179/js/PyramidsEgypt.json";
-  vegaEmbed('#symbol_map', spec2).then(function(result) {
+  var specVis1 = "https://monashanthonynguyen.github.io/FIT3179/js/PyramidsEgypt.json";
+  vegaEmbed('#symbol_map', specVis1).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
+
+  var specVis2 = "https://monashanthonynguyen.github.io/FIT3179/js/vis2.json";
+  vegaEmbed('#vis2', specVis2).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+  
+  
 </script>
 
 </body>
