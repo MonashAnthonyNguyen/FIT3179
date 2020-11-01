@@ -1,17 +1,33 @@
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+ "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "width": 800,
   "height": 500,
-  "title": "Vis2",
+  "title": "Dynasty of the Pyramids",
   
   "data": {
     "url": "https://raw.githubusercontent.com/MonashAnthonyNguyen/FIT3179/main/data/pyramids.csv"
   },
-  "mark": {"type": "bar"},
+  "transform": [
+    {"filter": {"field": "Height_(m)","valid": true}},
+    {"filter": {"not": {"field": "Type", "oneOf": ["-","Cenotaph"]}}}
+  ],
+  "mark": {"type": "bar", "color": "#fff7bc"},
   "encoding": {
-    "x": {"field": "Modern_name", "type": "nominal","axis": {"labelAngle": 0}},
-    "y": {"field": "Height_(m)", "type": "quantitative"}
-  },
-    
-  "config": {}
+    "x": {
+      "field": "Dynasty", 
+      "type": "nominal",
+      "title": "Dynasty of Pyramid",
+      "axis": {"labelAngle": 0},
+      "sort": [""]
+    },
+    "y": {
+      "aggregate": "count",
+      "field": "Type", 
+      "title": "Number of Pyramids"
+    },
+    "tooltip":[
+      {"field": "Dynasty"},
+      {"aggregate": "count", "field": "Type","title": "Total Pyramids"}
+    ]
+  }
 }
