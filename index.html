@@ -18,7 +18,13 @@
 <div id="symbol_map"></div>
 
 <h2>vis2</h2>
-<div id="vis2"></div> 
+<div id="vis2"></div>
+
+<h2>vis3</h2>
+<div id="vis3"></div>
+
+<h2>vis4</h2>
+<div id="vis4"></div>
 
 <script type="text/javascript">
 
@@ -29,6 +35,16 @@
 
   var specVis2 = "https://monashanthonynguyen.github.io/FIT3179/js/vis2.json";
   vegaEmbed('#vis2', specVis2).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+  
+  var specVis3 = "https://monashanthonynguyen.github.io/FIT3179/js/vis3.json";
+  vegaEmbed('#vis3', specVis3).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+  
+  var specVis4 = "https://monashanthonynguyen.github.io/FIT3179/js/vis4.json";
+  vegaEmbed('#vis4', specVis4).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
   
