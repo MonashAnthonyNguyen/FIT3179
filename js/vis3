@@ -1,0 +1,35 @@
+{
+ "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 800,
+  "height": 500,
+  "title": "Tallest Pyramids",
+  
+  "data": {
+    "url": "https://raw.githubusercontent.com/MonashAnthonyNguyen/FIT3179/main/data/pyramids.csv"
+  },
+  "transform": [
+    {"filter": {"field": "Height_(m)","valid": true}},
+    {"filter": {"field": "Height_(m)","gt": 70}}
+  ],
+  "mark": {"type": "bar", "color": "#fff7bc"},
+  "encoding": {
+    "y": {
+      "field": "Modern_name", 
+      "type": "nominal",
+      "title": "Name of Pyramid",
+      "sort": "-x"
+    },
+    "x": {
+      "field": "Height_(m)", 
+      "type": "quantitative",
+      "title": "Height (m)"
+    },
+    "tooltip":[
+    {"field": "Modern_name", "title": "Name"},
+    {"field": "Height_(m)", "title": "Height (m)"},
+    {"field": "Type", "title": "Type"},
+    {"field": "Dynasty", "title": "Dynasty"},
+    {"field": "Site", "title": "Site"}
+  ]
+  }
+}
