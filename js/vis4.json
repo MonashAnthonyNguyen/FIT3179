@@ -1,0 +1,34 @@
+{
+ "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 800,
+  "height": 500,
+  "title": "Types of Pyramids",
+  
+  "data": {
+    "url": "https://raw.githubusercontent.com/MonashAnthonyNguyen/FIT3179/main/data/pyramids.csv"
+  },
+  "transform": [
+    {"filter": {"field": "Height_(m)","valid": true}},
+    {"filter": {"not": {"field": "Type", "oneOf": ["-","Cenotaph"]}}}
+  ],
+  "mark": {"type": "bar", "color": "#fff7bc"},
+  "encoding": {
+    "y": {
+      "field": "Type", 
+      "type": "nominal",
+      "title": "Type of Pyramid",
+      "sort": "-x"
+      
+    },
+    "x": {
+      "aggregate": "count",
+      "field": "Type", 
+      "title": "Number of Pyramids"
+    },
+    "tooltip":[
+      {"field": "Type"},
+      {"aggregate": "count", "field": "Type","title": "Total Pyramids"}
+
+  ]
+  }
+}
