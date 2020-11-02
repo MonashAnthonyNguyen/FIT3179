@@ -15,7 +15,7 @@
       "field": "Type", 
       "type": "nominal",
       "title": null,
-      "axis": {"labelAngle": 0, "labelAlign": "center"},
+      "axis": {"labelAngle": -45, "labelAlign": "right"},
       "sort": "-y"
     },
     "y": {
