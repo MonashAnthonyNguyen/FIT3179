@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "width": 600,
   "height": 600,
-  "title": "Pyramids of Egypt",
+  "title": "Map of Egypt",
   "projection": {"type": "equirectangular"},
   "layer": [
     {
@@ -11,6 +11,14 @@
         "format": {"type": "topojson", "feature": "custom"}
       },
       "mark": {"type": "geoshape", "fill": "#fff7bc", "stroke": "white"}
+    },
+
+    {
+      "data": {
+        "url": "https://monashanthonynguyen.github.io/FIT3179/js/NileEgypt.json",
+        "format": {"type": "topojson", "feature": "nile_river_6ca"}
+      },
+      "mark": {"type": "geoshape", "fill": null, "stroke": "blue"}
     },
     
     {
