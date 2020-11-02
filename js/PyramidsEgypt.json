@@ -12,33 +12,26 @@
       },
       "mark": {"type": "geoshape", "fill": "#fff7bc", "stroke": "white"}
     },
-
-    {
-      "data": {
-        "url": "https://monashanthonynguyen.github.io/FIT3179/js/ne_110m_rivers_lake_centerlines.json",
-        "format": {"type": "topojson", "feature": "ne_110m_rivers_lake_centerlines"}
-      },
-      "mark": {"type": "geoshape", "color": "blue"}
-    },
     
     {
       "data": {
         "url": "https://raw.githubusercontent.com/MonashAnthonyNguyen/FIT3179/main/data/pyramids.csv"
       },
-
-
-      "mark": {"type": "circle", "tooltip": {"content": "data"}, "color": "#f03b20"},
+      "transform": [
+        {"filter": {"field": "Height_(m)","valid": true}},
+        {"filter": {"not": {"field": "Type", "oneOf": ["-","Cenotaph"]}}}
+      ],
+      "mark": {"type": "circle", "color": "#f03b20"},
       "encoding": {
         "longitude": {"field": "Longitude", "type": "quantitative"},
         "latitude": {"field": "Latitude", "type": "quantitative"},
         "tooltip": [
-          {"field": "Modern name", "type": "nominal"},
-          {"field": "Dynasty", "type": "nominal"},
-          {"field": "Site", "type": "nominal"},
-          {"field": "Height (m)", "type": "quantitative"}
+          {"field": "Modern_name", "title": "Name"},
+          {"field": "Site", "title": "Site"},
+          {"field": "Dynasty", "title": "Dynasty"},
+          {"field": "Height_(m)", "title": "Height (m)"}
         ]
       }
     }
-
   ]
 }
