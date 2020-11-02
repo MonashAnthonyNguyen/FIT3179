@@ -1,7 +1,5 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "width": 600,
-  "height": 600,
   "title": "Map of Egypt",
   "projection": {"type": "equirectangular"},
   "layer": [
