@@ -1,0 +1,40 @@
+{
+ "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 700,
+  "height": 400,
+  "title": "Pyramid Materials",
+  
+  "data": {
+    "url": "https://raw.githubusercontent.com/MonashAnthonyNguyen/FIT3179/main/data/pyramids.csv"
+  },
+
+  "transform": [
+    {"filter": {"field": "Height_(m)","valid": true}},
+    {"filter": {"not": {"field": "Type", "oneOf": ["-","Cenotaph","Mastaba"]}}},
+    {"filter": {"not": {"field": "Material", "oneOf": [""]}}}
+  ],
+  "mark": {"type": "bar", "color": "#fff7bc", "tooltip": true},
+  "encoding": {
+    "x": {
+      "field": "Material", 
+      "type": "nominal",
+      "title": "Material",
+      "axis": {"labelAngle": -45, "labelAlign": "right"},
+      "sort": "-y"
+    },
+    "y": {
+      "aggregate": "count",
+      "field": "Material", 
+      "title": "Number of Pyramids"
+    },
+    "color": {
+      "field": "Type",
+      "type": "nominal",
+      "scale": {
+        "domain": ["True", "Step", "Smooth-faced", "Smooth-sided", "Bent"],
+        "range": ["#e7ba52", "#d95f0e", "#253494", "#7fcdbb", "#969696"]
+      },
+    "legend": {"title": "Pyramid Type"}
+    }
+  }
+}
