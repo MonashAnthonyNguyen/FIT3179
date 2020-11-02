@@ -14,22 +14,19 @@
 <body>
 <h1>Egypt: Land of the Pyramids</h1>
 
-<h2>Map</h2>
-<div id="symbol_map"></div>
+<h2>What is a pyramid? Types and Dynasty</h2>
+<div id="vis4"><div id="vis2"></div>
 
-<h2>vis2</h2>
-<div id="vis2"></div>
+<h2>Geography</h2>
+<div id="map"><div id="vis5"></div>
 
-<h2>vis3</h2>
-<div id="vis3"></div>
-
-<h2>vis4</h2>
-<div id="vis4"></div>
+<h2>Interesting facts Tallest and Materials</h2>
+<div id="vis3"><div id="vis6"></div>
 
 <script type="text/javascript">
 
-  var specVis1 = "https://monashanthonynguyen.github.io/FIT3179/js/PyramidsEgypt.json";
-  vegaEmbed('#symbol_map', specVis1).then(function(result) {
+  var specVis1 = "https://monashanthonynguyen.github.io/FIT3179/js/map.json";
+  vegaEmbed('#map', specVis1).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
 
@@ -45,6 +42,16 @@
   
   var specVis4 = "https://monashanthonynguyen.github.io/FIT3179/js/vis4.json";
   vegaEmbed('#vis4', specVis4).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+  
+  var specVis5 = "https://monashanthonynguyen.github.io/FIT3179/js/vis5.json";
+  vegaEmbed('#vis5', specVis5).then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+  
+  var specVis6 = "https://monashanthonynguyen.github.io/FIT3179/js/vis6.json";
+  vegaEmbed('#vis6', specVis6).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
   
