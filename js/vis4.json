@@ -1,6 +1,6 @@
 {
  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-  "width": 800,
+  "width": 500,
   "height": 500,
   "title": "Types of Pyramids",
   
@@ -9,26 +9,36 @@
   },
   "transform": [
     {"filter": {"field": "Height_(m)","valid": true}},
-    {"filter": {"not": {"field": "Type", "oneOf": ["-","Cenotaph"]}}}
+    {"filter": {"not": {"field": "Type", "oneOf": ["-","Cenotaph","Mastaba"]}}}
   ],
   "mark": {"type": "bar", "color": "#fff7bc"},
   "encoding": {
-    "y": {
+    "x": {
       "field": "Type", 
       "type": "nominal",
-      "title": "Type of Pyramid",
-      "sort": "-x"
-      
+      "title": null,
+      "axis": {"labelAngle": 0, "labelAlign": "center"},
+      "sort": "-y"
     },
-    "x": {
+    "y": {
       "aggregate": "count",
       "field": "Type", 
-      "title": "Number of Pyramids"
+      "title": "Number of Pyramids",
+      "axis": {"tickCount": 5},
+      "scale": {"type": "linear", "domain": [0,30]}
     },
     "tooltip":[
       {"field": "Type"},
       {"aggregate": "count", "field": "Type","title": "Total Pyramids"}
-
-  ]
+    ],
+    "color": {
+      "field": "Type",
+      "type": "nominal",
+      "scale": {
+        "domain": ["True", "Step", "Smooth-faced", "Smooth-sided", "Bent"],
+        "range": ["#e7ba52", "#d95f0e", "#253494", "#7fcdbb", "#969696"]
+      },
+    "legend": {"title": "Pyramid Type"}
+    }
   }
 }
