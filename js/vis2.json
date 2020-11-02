@@ -1,37 +1,33 @@
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+ "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
   "width": 800,
   "height": 500,
-  "title": "Pyramids of Egypt",
-  "projection": {"type": "equirectangular"},
-  "layer": [
-    {
-      "data": {
-        "url": "https://monashanthonynguyen.github.io/FIT3179/js/Egypt.geo.json",
-        "format": {"type": "topojson", "feature": "custom"}
-      },
-      "mark": {"type": "geoshape", "fill": "#fff7bc", "stroke": "white"}
+  "title": "Dynasty of the Pyramids",
+  
+  "data": {
+    "url": "https://raw.githubusercontent.com/MonashAnthonyNguyen/FIT3179/main/data/pyramids.csv"
+  },
+  "transform": [
+    {"filter": {"field": "Height_(m)","valid": true}},
+    {"filter": {"not": {"field": "Type", "oneOf": ["-","Cenotaph"]}}}
+  ],
+  "mark": {"type": "bar", "color": "#fff7bc"},
+  "encoding": {
+    "x": {
+      "field": "Dynasty", 
+      "type": "nominal",
+      "title": "Dynasty of Pyramid",
+      "axis": {"labelAngle": 0},
+      "sort": [""]
     },
-    
-    {
-      "data": {
-        "url": "https://raw.githubusercontent.com/MonashAnthonyNguyen/FIT3179/main/data/pyramids.csv"
-      },
-      "transform": [
-        {"filter": {"field": "Height_(m)","valid": true}},
-        {"filter": {"not": {"field": "Type", "oneOf": ["-","Cenotaph"]}}}
-      ],
-      "mark": {"type": "circle", "color": "#f03b20"},
-      "encoding": {
-        "longitude": {"field": "Longitude", "type": "quantitative"},
-        "latitude": {"field": "Latitude", "type": "quantitative"},
-        "tooltip": [
-          {"field": "Modern_name", "title": "Name"},
-          {"field": "Site", "title": "Site"},
-          {"field": "Dynasty", "title": "Dynasty"},
-          {"field": "Height_(m)", "title": "Height (m)"}
-        ]
-      }
-    }
-  ]
+    "y": {
+      "aggregate": "count",
+      "field": "Type", 
+      "title": "Number of Pyramids"
+    },
+    "tooltip":[
+      {"field": "Dynasty"},
+      {"aggregate": "count", "field": "Type","title": "Total Pyramids"}
+    ]
+  }
 }
