@@ -19,7 +19,7 @@
       },
       "transform": [
         {"filter": {"field": "Height_(m)","valid": true}},
-        {"filter": {"not": {"field": "Type", "oneOf": ["-","Cenotaph"]}}}
+        {"filter": {"not": {"field": "Type", "oneOf": ["-","Cenotaph","Mastaba"]}}}
       ],
       "selection": {
         "type_highlight": {
@@ -28,7 +28,7 @@
         "bind": "legend"
         }
       },
-      "mark": {"type": "circle", "color": "#f03b20", "size": 50},
+      "mark": {"type": "circle", "size": 100},
       "encoding": {
         "longitude": {"field": "Longitude", "type": "quantitative"},
         "latitude": {"field": "Latitude", "type": "quantitative"},
@@ -48,26 +48,8 @@
           }
         },
         "opacity": {
-          "condition": {"selection": "type_highlight", "value": 0.6},
+          "condition": {"selection": "type_highlight", "value": 0.8},
           "value" : 0
-        }
-      }
-    },
-    {
-      "data": {
-        "url": "https://raw.githubusercontent.com/MonashAnthonyNguyen/FIT3179/main/data/pyramids.csv"
-      },
-      "mark": {
-        "type": "text",
-        "dx": -90
-      },
-      "encoding": {
-        "text": {"field": "Modern_name", "type": "nominal"},
-        "longitude": {"field": "Longitude", "type": "quantitative"},
-        "latitude": {"field": "Latitude", "type": "quantitative"},
-        "opacity": {
-          "condition": {"test": {"field": "Modern_name", "equal": "The Great Pyramid of Giza"}},
-          "value": 0
         }
       }
     }
